@@ -1,0 +1,21 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: myreactapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: myreactapp
+  template:
+    metadata:
+      labels:
+        app: myreactapp
+    spec:
+      containers:
+        - name: myreactapp
+          image: aryangupta4460/myreactapp:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      restartPolicy: Always
